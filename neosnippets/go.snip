@@ -13,12 +13,19 @@ options     head
     fmt.Printf("Hello, world\n")
   }
 
-snippet     func
+snippet     fun
 abbr        func ...() { ... }
 alias fn
 options     head
-  func ${1:fname}(${2}) ${3:int }{
-    ${0:TARGET:return }
+  func ${1:fname}(${2}) ${3:error} {
+    ${4:return} ${5:nil}
+  }${0:}
+
+snippet     fum
+abbr        func () ...() { ... }
+options     head
+  func (${1:obj} ${2:Type}) ${3:fname}(${4}) ${5:error} {
+    ${6:return} ${7:nil}
   }
 
 snippet     import
@@ -84,7 +91,18 @@ options     head
     if err != nil {
       return `g:NeosnippetSnippets_Goiferr()`
     }
-    ${2}
+
+snippet     tif
+options     head
+    if ${1:exp != res} {
+      t.Errorf("Incorrect result. Expected %q, got %q\n", ${2:exp}, ${3:res})
+    }${0:}
+
+snippet     terr
+options     head
+    if err != nil {
+      t.Fatalf("${1:Func} error: %s\n", err)
+    }${0:}
 
 snippet     switch
 abbr        switch {}
