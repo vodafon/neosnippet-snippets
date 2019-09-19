@@ -1,0 +1,65 @@
+snippet it
+abbr it do ... end
+options head
+  it '${1:is }' do
+    ${0}
+  end
+
+snippet let
+abbr let ...
+options head
+  let(:${1:name}) { ${2:expression} }
+
+snippet let!
+abbr let!
+options head
+  let!(:${1:name}) { ${2:expression} }
+
+snippet befa
+abbr before all
+options head
+  before(:all) do
+    ${0}
+  end
+
+snippet befe
+abbr before each
+options head
+  before(:each) do
+    ${0}
+  end
+
+
+snippet aftera
+abbr after all
+options head
+  after(:all) do
+    ${0}
+  end
+
+snippet aftere
+abbr after each
+options head
+  after(:each) do
+    ${0}
+  end
+
+snippet allow_to_recieve_and_return
+abbr stub
+options head
+  allow(${1:#:object}).to receive(${2:#::method}).and_return ${3:#:value}
+
+snippet exp
+abbr expect(actual)
+options word
+  expect(${1:actual}).to ${0}
+
+snippet expb
+abbr expect { actual }
+options word
+  expect { ${1:#:actual} }.to ${0}
+
+snippet be_within_of
+abbr be within of
+options word
+  be_within(${2:#:delta}).of(${1:#:expected})
