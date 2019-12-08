@@ -162,3 +162,11 @@ options     head
           }
       })
   }
+
+snippet     rwr
+alias       handler
+abbr        func(w http.ResponseWriter, r *http.Request)
+options     head
+  func ${1}Handler(w http.ResponseWriter, r *http.Request) {
+      fmt.Fprint(w, "${2}")
+  }
