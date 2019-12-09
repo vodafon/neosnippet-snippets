@@ -170,3 +170,10 @@ options     head
   func ${1}Handler(w http.ResponseWriter, r *http.Request) {
       fmt.Fprint(w, "${2}")
   }
+
+snippet     servehttp
+abbr        func (h handler) ServeHTTP
+options     head
+  func (h ${1:handler}) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+      h.next.ServeHTTP(w, r)
+  }
